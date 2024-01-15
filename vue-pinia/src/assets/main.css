@@ -22,13 +22,19 @@ select{
   margin-top: 15px;
   margin-bottom: 15px;
 }
-select option{
+option{
   padding: 5;
-
+  color: orange;
+  background-color: black;
 }
 option:hover{
   background-color:rgb(255, 165, 0, 0.5);
+  color: orange;
+}
 
+h3{
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 body{

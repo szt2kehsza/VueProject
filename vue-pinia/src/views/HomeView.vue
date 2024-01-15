@@ -30,19 +30,19 @@ export default {
         ],
       },
       {
+        neve: 'Centrál Színház',
+        eloadasok: [
+          { cim: 'Ma este felnövünk', url: 'https://www.centralszinhaz.hu/eloadasok/ma_este_felnovunk' },
+          { cim: 'Házassági leckék középhaladóknak', url: 'https://www.centralszinhaz.hu/eloadasok/hazassagi_leckek_kozephaladoknak' },
+        ],
+      },
+      {
         neve: 'Thália Színház',
         eloadasok: [
           { cim: 'Legszebb férfikor', url: 'https://thalia.hu/eloadasok/legszebb-ferfikor/' },
           { cim: 'Bolha a fülbe', url: 'https://thalia.hu/eloadasok/bolha-a-fulbe/' },
           { cim: 'Rettenetes szülők', url: 'https://thalia.hu/eloadasok/jean-cocteau-rettenetes-szulok/' },
           { cim: 'A nagy kézrablás', url: 'https://thalia.hu/eloadasok/a-nagy-kezrablas-2/' },
-        ],
-      },
-      {
-        neve: 'Centrál Színház',
-        eloadasok: [
-          { cim: 'Ma este felnövünk', url: 'https://www.centralszinhaz.hu/eloadasok/ma_este_felnovunk' },
-          { cim: 'Házassági leckék középhaladóknak', url: 'https://www.centralszinhaz.hu/eloadasok/hazassagi_leckek_kozephaladoknak' },
         ],
       },
     ])
