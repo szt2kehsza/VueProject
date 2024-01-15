@@ -21,8 +21,8 @@ const storeSzinhaz = useSzinhazStore()
   
 }
 
-.h1{
-  padding: 10px;
+h2{
+  margin-top: 15px;
 }
 
 @media (min-width: 1024px) {

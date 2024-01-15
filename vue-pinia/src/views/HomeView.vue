@@ -63,8 +63,4 @@ export default {
   margin-top: 20px;
   
 }
-
-.h1{
-  padding: 10px;
-}
 </style>
