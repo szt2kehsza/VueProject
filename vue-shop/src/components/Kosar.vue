@@ -33,9 +33,9 @@
 <template>
   <h1>Kosár</h1>
 
-  <table class="tabla">
+  <table>
     <tr v-for="c in carts" key="c.id">
-      <td> {{ c.id }} </td>
+      <td class="tableId"> {{ c.id }} </td>
       <td>  {{c.name}}  </td>
       <td> {{ c.price }}  </td>
       <td> <span @click="del(c.id)">❌</span> </td>
@@ -47,7 +47,15 @@
 </template>
 
 <style scoped>
-.tabla, tr{
-  border: 1px solid black;
+table, td{
+  border: 1px solid;
+  border-collapse: collapse;
+  padding: 5px;
+}
+.tableId{
+  text-align: center;
+}
+span:hover{
+  cursor: pointer;
 }
 </style>

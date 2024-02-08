@@ -40,19 +40,39 @@
 
 <template>
     <h1>Új termék felvétele</h1>
-    <div>
-      <div>
-        <label>Terméknév:</label>
+    <div class="termekMainDiv">
+      <div class="termekDiv">
+        <label class="termekInput">Terméknév:</label>
         <input type="text" v-model="name" placeholder="Új termék neve:">
       </div>
-      <div>
-        <label>Ára:</label>
-        <input type="text" v-model="price" placeholder="Új termék ára:">
+      <div class="termekDiv">
+        <label class="termekInput">Ára:</label>
+        <input class="input" type="text" v-model="price" placeholder="Új termék ára:">
       </div>
-      <button @click="save()">Mentés</button>
+      <button class="button" @click="save()">Mentés</button>
     </div>
 
 </template>
 
 <style scoped>
+.termekMainDiv{
+  padding: 10px;
+  width: 300px;
+  border: 2px solid black;
+}
+.termekDiv{
+  margin: 5px;
+  padding: 5px;
+}
+.input{
+  margin-left: 46.6px;
+}
+
+.termekInput{
+  padding: 5px;
+  margin-right: 5px;
+}
+.button{
+  margin-top: 20px;
+}
 </style>

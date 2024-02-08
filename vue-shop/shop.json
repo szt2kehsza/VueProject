@@ -53,31 +53,5 @@
       "address": "Ahol megtalálsz"
     }
   ],
-  "cart": [
-    {
-      "id": "1",
-      "name": "elektromos kapu",
-      "price": "500000"
-    },
-    {
-      "id": "2",
-      "name": "gumiabroncs",
-      "price": "45000"
-    },
-    {
-      "id": "3",
-      "name": "asztal",
-      "price": "25000"
-    },
-    {
-      "id": "4",
-      "name": "szék",
-      "price": "25000"
-    },
-    {
-      "id": "e38b",
-      "name": "asdad",
-      "price": "5454"
-    }
-  ]
+  "cart": []
 }
