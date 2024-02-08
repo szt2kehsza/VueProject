@@ -88,7 +88,14 @@
   <h1>Kosár</h1>
 
   <div>
-    <table>
+    <table>     
+        <tr>
+          <td>Id</td>
+          <td>Név</td>
+          <td>Ár</td>       
+          <td>Mennyiség</td>    
+          <td>Törlés</td>    
+        </tr> 
       <tr v-for="c in carts" :key="c.id">
         <td class="tableId"> {{ c.id }} </td>
         <td>  {{c.name}}  </td>
