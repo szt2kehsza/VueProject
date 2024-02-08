@@ -10,19 +10,26 @@
     .then(resp => products.value = resp.data);
   })
 
-  const addToCard = (p) => {
-    let tombMerete = products.value.length;
-    let id = Number(products.value[tombMerete - 1].id); 
-    let d = {id: p.id, name : p.name, price:p.price};
-    console.log(d);    
-    fetch("http://localhost:3000/cart",
-    {
-      method : 'post',
-      body : JSON.stringify(d), 
-      headers : {
-        "Content-type" : "application/json"
-      }
-    })
+  const addToCard = async  (p) => {
+    const cartResponse = await fetch('http://localhost:3000/cart');
+    const cartData = await cartResponse.json();
+    const existingProduct = cartData.find(item => item.id === p.id);
+    if (existingProduct) {
+      alert('A kosárban már van ilyen termék');
+      return;
+    }
+    const newProduct = { id: p.id, name: p.name, price: p.price, quantity: "1"};
+    fetch('http://localhost:3000/cart', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newProduct)
+    }).then(() => {
+      alert('Hozzáadva a termék a kosárhoz.');
+    }).catch(error => {
+      console.error('A termék hozzáadása közben hiba keletkezett:', error);
+    });
 
   } 
 

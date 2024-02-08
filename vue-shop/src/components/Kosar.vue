@@ -1,7 +1,7 @@
 <script setup>
   import axios from 'axios';
   import {ref, onMounted} from 'vue';
-
+  const names = ref([]);
   const carts = ref();
   const successMessage = ref('');
 
@@ -29,6 +29,43 @@
     .then(() => letoltes())
   }
 
+  const incQuantity = (id) => {
+    const productIndex = carts.value.findIndex(item => item.id === id);
+    if (productIndex !== -1) {
+      carts.value[productIndex].quantity++;
+      updateQuantity(id, carts.value[productIndex].quantity);
+    }
+  }
+
+  const decQuantity = (id) => {
+    const productIndex = carts.value.findIndex(item => item.id === id);
+    if (productIndex !== -1) {
+      if (carts.value[productIndex].quantity === 1) {
+        del(id);
+      } else {
+        carts.value[productIndex].quantity = Math.max(carts.value[productIndex].quantity - 1, 0);
+        updateQuantity(id, carts.value[productIndex].quantity);
+      }
+    }
+  }
+
+
+
+  const updateQuantity = (id, quantity) => {
+    fetch(`http://localhost:3000/cart/${id}`, {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ quantity })
+    }).then(() => {
+      console.log('A kosárban frissítve lett a termék mennyisége.');
+    }).catch(error => {
+      console.error('A mennyiség frissítése közben hiba történt:', error);
+    });
+  }
+
+
   const Rendeles = async () => {
     await Promise.all(carts.value.map(item => {
       return fetch(`http://localhost:3000/cart/${item.id}`, {
@@ -50,28 +87,27 @@
 <template>
   <h1>Kosár</h1>
 
-  <table>
-    <tr v-for="c in carts" :key="c.id">
-      <td class="tableId"> {{ c.id }} </td>
-      <td>  {{c.name}}  </td>
-      <td> {{ c.price }}  </td>
-      <!-- <td><span>{{ c.quantity }}</span></td>
-      <td>  
-        <div class="btn">
-          <button @click="kivon(c.id)">-</button> &nbsp;
-          <button @click="add(c.id)">+</button>
-        </div>     
-      </td> -->
-      <td> <span class="del" @click="del(c.id)">❌</span> </td>
-    </tr>
-  </table>
+  <div>
+    <table>
+      <tr v-for="c in carts" :key="c.id">
+        <td class="tableId"> {{ c.id }} </td>
+        <td>  {{c.name}}  </td>
+        <td> {{ c.price }}  </td>
+        <td>
+          {{ c.quantity }}
+          <button @click="decQuantity(c.id)">-</button>
+          <button @click="incQuantity(c.id)">+</button>
+        </td>
+        <td> <span class="del" @click="del(c.id)">❌</span> </td>
+      </tr>
+    </table>
 
-  <button class="RendelesBtn" @click="Rendeles()">Rendelés</button>
+    <button class="RendelesBtn" @click="Rendeles()">Rendelés</button>
 
-  <div v-if="successMessage" class="success-message">
-    {{ successMessage }}
+    <div v-if="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
   </div>
-
 </template>
 
 <style scoped>
