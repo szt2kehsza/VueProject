@@ -3,6 +3,19 @@
   const names = ref();
   const name = ref("");
   const price = ref("");
+  
+  const letoltes = () => {
+    fetch('http://localhost:3000/products')
+    .then(resp => resp.json())
+    .then(json => {
+      names.value = json;
+      console.log(names.value);
+    })
+  }
+
+  onMounted(() => {
+    letoltes();
+  }) 
 
   const save = () => {
     console.log(name.value);
@@ -22,18 +35,6 @@
     .then(() => letoltes())
     alert("Sikeres mentés!")
   }
-  const letoltes = () => {
-    fetch('http://localhost:3000/products')
-    .then(resp => resp.json())
-    .then(json => {
-      names.value = json;
-      console.log(names.value);
-    })
-  }
-
-  onMounted(() => {
-    letoltes();
-  }) 
 
 
 </script>
