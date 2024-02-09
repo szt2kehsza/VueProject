@@ -102,7 +102,7 @@
         <td> {{ c.price }}  </td>
         <td>
           {{ c.quantity }}
-          <button @click="decQuantity(c.id)">-</button>
+          <button @click="decQuantity(c.id)">-</button>&nbsp;
           <button @click="incQuantity(c.id)">+</button>
         </td>
         <td> <span class="del" @click="del(c.id)">❌</span> </td>

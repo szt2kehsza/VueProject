@@ -6,8 +6,8 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
       <nav>
-        <RouterLink to="/">Bolt</RouterLink> |&nbsp;|
-        <RouterLink to="/kosar">Kosár</RouterLink> |&nbsp;|
+        <RouterLink to="/">Bolt</RouterLink> &nbsp;|&nbsp;
+        <RouterLink to="/kosar">Kosár</RouterLink> &nbsp;|&nbsp;
         <RouterLink to="/ujtermek">Új termék</RouterLink>
       </nav>
   </header>

@@ -45,14 +45,14 @@
 </script>
 
 <template>
-  <h1>Bolt</h1>
+  <h1 class="cim">Bolt</h1>
   <div class="main">
     <div v-for="p in products" class="card">
       <img src="./icons/no-image.png" alt="nokep" id="kep">
       <div class="content-card">
         <h3> Név: {{p.name}} </h3>
         <p> Ár: {{p.price}} </p>
-        <button class="button" @click="showDetails(p)">Részletek</button>
+        <button class="button" @click="showDetails(p)">Részletek</button>&nbsp;
         <button class="button" @click="addToCard(p)">Kosárba</button>
       </div>
     </div>
@@ -128,6 +128,12 @@
   align-items: center;
   align-items: center;
   margin: 0 auto;
+  justify-content: space-between;
+}
+
+.cim{
+  text-align: center;
+  font-size: 50px;
 }
 
 @media (min-width: 992px) {
